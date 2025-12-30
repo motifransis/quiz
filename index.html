@@ -80,6 +80,25 @@
           <p class="text-lg text-gray-600 mb-8 max-w-md">
             כל השאלות נוצרו באמצעות בינה מלאכותית על סמך החומר שנלמד. בהצלחה!
           </p>
+          <!-- choose number of questions up to 79 -->
+          <select class="m-5" name="numOfQuestions" id="numOfQuestions">
+            <option value="5">5 שאלות</option>
+            <option value="10">10 שאלות</option>
+            <option value="15" selected>15 שאלות</option>
+            <option value="20">20 שאלות</option>
+            <option value="25">25 שאלות</option>
+            <option value="30">30 שאלות</option>
+            <option value="35">35 שאלות</option>
+            <option value="40">40 שאלות</option>
+            <option value="45">45 שאלות</option>
+            <option value="50">50 שאלות</option>
+            <option value="55">55 שאלות</option>
+            <option value="60">60 שאלות</option>
+            <option value="65">65 שאלות</option>
+            <option value="70">70 שאלות</option>
+            <option value="75">75 שאלות</option>
+            <option value="79">כל השאלות (79)</option>
+          </select>
           <button
             id="start-btn"
             class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition shadow-lg transform hover:scale-105"
@@ -3288,8 +3307,13 @@
         score = 0;
         canAnswer = true;
 
+        const numOfQuestions = document.querySelector("#numOfQuestions").value;
+        console.log(numOfQuestions);
+
         // ערבוב שאלות רנדומלי בתחילת כל משחק
-        quizData = quizData.sort(() => Math.random() - 0.5).slice(0, 15); // בחרו 15 שאלות אקראיות
+        quizData = quizData
+          .sort(() => Math.random() - 0.5)
+          .slice(0, parseInt(numOfQuestions)); // בחרו 15 שאלות אקראיות
 
         // UI Reset
         startScreen.classList.add("hidden");
