@@ -230,7 +230,7 @@
 
     <script>
       // --- Data ---
-      const quizData = [
+      let quizData = [
         {
           question:
             "על פי החומר, מהי המסקנה העיקרית שהוסקה מהווריאציות הנוספות של ניסוי מילגרם?",
@@ -3289,7 +3289,7 @@
         canAnswer = true;
 
         // ערבוב שאלות רנדומלי בתחילת כל משחק
-        quizData.sort(() => Math.random() - 0.5);
+        quizData = quizData.sort(() => Math.random() - 0.5).slice(0, 15); // בחרו 15 שאלות אקראיות
 
         // UI Reset
         startScreen.classList.add("hidden");
